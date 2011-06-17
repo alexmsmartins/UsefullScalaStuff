@@ -9,8 +9,8 @@ class MapFunctions[T] {
       case 2 => mapcar2(f.asInstanceOf[(T, T) => T], lists)
       case 3 => mapcar3 (f, lists)
       case 4 => mapcar4 (f, lists)
-      /*case 5 => mapcar5 (f, lists)
-      case 6 => mapcar6 (f, lists)
+      case 5 => mapcar5 (f, lists)
+      /*case 6 => mapcar6 (f, lists)
       case 7 => mapcar7 (f, lists)
       case 8 => mapcar8 (f, lists)
       case 9 => mapcar9 (f, lists)
@@ -31,6 +31,14 @@ class MapFunctions[T] {
       case _ => throw new Exception
     }
   }
+
+  private def mapcar1(func: Any, lists: List[List[T]]): List[T] = {
+    val f = func.asInstanceOf[(T) => T]
+    for (index <- List.range(0, lists.head.size)  ) yield {
+      f(lists(0).asInstanceOf[List[T]](index))
+    }
+  }
+
 
   private def mapcar2(func: Any, lists: List[List[T]]): List[T] = {
     val f = func.asInstanceOf[(T,T) => T]
@@ -56,6 +64,17 @@ class MapFunctions[T] {
         lists(1).asInstanceOf[List[T]](index),
         lists(2).asInstanceOf[List[T]](index),
         lists(3).asInstanceOf[List[T]](index))
+    }
+  }
+
+  private def mapcar5(func: Any, lists: List[List[T]]): List[T] = {
+    val f = func.asInstanceOf[(T,T,T,T,T) => T]
+    for (index <- List.range(0, lists.head.size)  ) yield {
+      f(lists(0).asInstanceOf[List[T]](index),
+        lists(1).asInstanceOf[List[T]](index),
+        lists(2).asInstanceOf[List[T]](index),
+        lists(3).asInstanceOf[List[T]](index),
+        lists(4).asInstanceOf[List[T]](index))
     }
   }
 }
