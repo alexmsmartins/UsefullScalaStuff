@@ -1,6 +1,6 @@
 package alexmsmartins
 
-class MapFunctions[T] {
+class MapFunction[T] {
   def mapcar(f:Any, args:List[T]*): List[T] = {
     //TODO: check if the list sizes and number of arguments in the function match
     //val f = func.asInstanceOf[(T*) => T]
@@ -84,7 +84,7 @@ object tests {
     val a = List(1, 2, 3, 4)
     val b = List(5, 6, 7, 8)
     val c = List(9, 10, 11, 12)
-    val map = new MapFunctions[Int]
+    val map = new MapFunction[Int]
     val functTest = (x:Int, y:Int, z:Int) => x + y + z
     map.mapcar(functTest, a, b, c)
   }
