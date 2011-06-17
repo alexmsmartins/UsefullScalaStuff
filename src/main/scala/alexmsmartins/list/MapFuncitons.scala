@@ -1,8 +1,9 @@
 package alexmsmartins
 
 class MapFunctions[T] {
-  def mapcar(f:(T*) => T, args:List[T]*): List[T] = {
+  def mapcar(f:Any, args:List[T]*): List[T] = {
     //TODO: check if the list sizes and number of arguments in the function match
+    //val f = func.asInstanceOf[(T*) => T]
     val lists = args.toList
     lists.size match {
       case 2 => mapcar2(f.asInstanceOf[(T, T) => T], lists)
@@ -31,23 +32,26 @@ class MapFunctions[T] {
     }
   }
 
-  private def mapcar2(f: (T, T) => T, lists: List[List[T]]): List[T] = {
-    for (val index <- List.range(0, (lists.head).asInstanceOf[List[T]].size).asInstanceOf[List[Int]]  ) {
+  private def mapcar2(func: Any, lists: List[List[T]]): List[T] = {
+    val f = func.asInstanceOf[(T,T) => T]
+    for (index <- List.range(0, lists.head.size)  ) yield {
       f(lists(0).asInstanceOf[List[T]](index),
-        lists(2).asInstanceOf[List[T]](index))
+        lists(1).asInstanceOf[List[T]](index))
     }
   }
 
-  private def mapcar3(f: (T *) => T, lists: List[List[T]]): List[T] = {
-    for (val index <- List.range(0, lists.head.asInstanceOf[List[T]].size).asInstanceOf[List[Int]]  ) {
+  private def mapcar3(func: Any, lists: List[List[T]]): List[T] = {
+    val f = func.asInstanceOf[(T,T,T) => T]
+    for (index <- List.range(0, lists.head.size)  ) yield {
       f(lists(0).asInstanceOf[List[T]](index),
         lists(1).asInstanceOf[List[T]](index),
         lists(2).asInstanceOf[List[T]](index))
     }
   }
 
-  private def mapcar4(f: (T *) => T, lists: List[List[T]]): List[T] = {
-    for (val index <- List.range(0, lists.head.asInstanceOf[List[T]].size).asInstanceOf[List[Int]]  ) {
+  private def mapcar4(func: Any, lists: List[List[T]]): List[T] = {
+    val f = func.asInstanceOf[(T,T,T,T) => T]
+    for (index <- List.range(0, lists.head.size)  ) yield {
       f(lists(0).asInstanceOf[List[T]](index),
         lists(1).asInstanceOf[List[T]](index),
         lists(2).asInstanceOf[List[T]](index),
