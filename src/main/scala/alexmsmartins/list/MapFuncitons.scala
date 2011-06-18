@@ -1,12 +1,25 @@
 package alexmsmartins
 
 class MapFunction[T] {
+
+  //Design by contract
+  def initialAssertions(): Unit = {
+    ""
+  }
+
+
   def mapcar(f:Any, args:List[T]*): List[T] = {
     //TODO: check if the list sizes and number of arguments in the function match
-    //val f = func.asInstanceOf[(T*) => T]
+    val sizes = args.map(_.size)
+    val headSize = sizes(0)
+    val tailSizes = sizes.tail
+
+
+    //val f = func.asInstanceOf[(T*) => T] 
     val lists = args.toList
     lists.size match {
-      case 2 => mapcar2(f.asInstanceOf[(T, T) => T], lists)
+      case 1 => mapcar1 (f, lists)
+      case 2 => mapcar2 (f, lists)
       case 3 => mapcar3 (f, lists)
       case 4 => mapcar4 (f, lists)
       case 5 => mapcar5 (f, lists)
