@@ -1,4 +1,6 @@
-A few tools that I find usefull when programming in Scala.
+A few tools that I find useful when programming in Scala.
+Namely:
+ - a mapcar implementation 
 
 
 
