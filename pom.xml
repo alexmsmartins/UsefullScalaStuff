@@ -17,6 +17,8 @@
         <project.reporting.outputEncoding>${project.build.sourceEncoding}</project.reporting.outputEncoding>
         <!-- vscaladoc settings -->
         <maven.scaladoc.vscaladocVersion>1.2-m1</maven.scaladoc.vscaladocVersion>
+        <!-- logback version -->
+        <lb.version>0.9.29</lb.version>
     </properties>
 
     <repositories>
@@ -57,6 +59,17 @@
             <artifactId>slf4j-api</artifactId>
             <version>1.6.1</version>
         </dependency>
+       <dependency>
+         <groupId>ch.qos.logback</groupId>
+         <artifactId>logback-core</artifactId>
+         <version>${lb.version}</version>
+           <scope>provided</scope>
+       </dependency>
+       <dependency>
+           <groupId>ch.qos.logback</groupId>
+           <artifactId>logback-classic</artifactId>
+           <version>${lb.version}</version>
+       </dependency>
     </dependencies>
 
     <build>

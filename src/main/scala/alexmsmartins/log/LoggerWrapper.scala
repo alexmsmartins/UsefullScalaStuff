@@ -7,7 +7,11 @@ import org.slf4j.{LoggerFactory, Marker, Logger}
  *  Date: 14-09-2011
  *  Time: 16:03 */
 trait LoggerWrapper {
-  lazy private[this] val logger:Logger = {
+
+  /**
+   * loads the logger lazily when it is first needed
+   */
+  lazy protected[this] val logger:Logger = {
     Console.println("Logger wrapper initialized for " + getClass)
     LoggerFactory.getLogger(getClass)
   }
@@ -280,3 +284,8 @@ trait LoggerWrapper {
   def error(marker: Marker, msg: String, t: Throwable) {logger.error(marker, msg,t)}
 
 }
+
+/**
+ * Makes the L
+ */
+object LoggerWrapper extends LoggerWrapper

@@ -1,7 +1,10 @@
 package alexmsmartins
+
+import log.LoggerWrapper
 import org.specs._
 import alexmsmartins.map._
-import java.lang.IllegalArgumentException
+import alexmsmartins.log.LoggerWrapper._
+import java.lang.{IndexOutOfBoundsException, IllegalArgumentException}
 
 /**
  * Created by IntelliJ IDEA.
@@ -11,6 +14,8 @@ import java.lang.IllegalArgumentException
  * To change this template use File | Settings | File Templates.
  */
 object mapcarSpec extends Specification {
+  LoggerWrapper.info("mapcarSpec test logging started!")
+
   description = "the system basic functionalities are"
   "MapFunction" should {
     "be able to add lists of integers " in{
@@ -22,9 +27,11 @@ object mapcarSpec extends Specification {
       val funcTest2 = (a:Int, b:Int, c:Int, d:Int) => a+b+c+d
       mapcar(funcTest2, List(1,2,3,4), List(1,1,1,1), List(2,2,2,2), List(1,1,1,1)) must_== List(5,6,7,8)
     };
-    "throw a IllegalArgumentExcetion if lists of different sizes are used " in{
+    "throw a IndexOutOfBoundsException if lists of different sizes are used " in{
       val funcTest2 = (a:Int, b:Int, c:Int, d:Int) => a+b+c+d
-      mapcar(funcTest2, List(1,2,3,4), List(1,1,1,1), List(2,2,2,2), List(1,1,1)) must throwA(new IllegalArgumentException("message"))
+      mapcar(funcTest2, List(1,2,3,4), List(1,1,1,1), List(2,2,2,2), List(1,1,1)) must
+        throwA[IndexOutOfBoundsException]
     }
   }
+  LoggerWrapper.info("mapcarSpec test logging started!")
 }
