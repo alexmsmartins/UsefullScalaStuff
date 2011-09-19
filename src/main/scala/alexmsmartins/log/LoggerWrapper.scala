@@ -285,6 +285,16 @@ trait LoggerWrapper {
 
 }
 
+trait LoggerSupplier {
+  protected[LoggerSupplier] class TheLogger(clazz:Class[_]) extends LoggerWrapper{
+    override lazy protected[this] val logger:Logger = {
+      Console.println("Logger wrapper initialized for " + getClass)
+      LoggerFactory.getLogger(clazz)
+    }
+  }
+  val supplyLog = new TheLogger(this.getClass)
+}
+
 /**
  * Makes the L
  */

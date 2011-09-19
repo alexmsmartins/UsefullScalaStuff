@@ -1,9 +1,10 @@
 package alexmsmartins
 
-import log.LoggerWrapper
+import log.{LoggerSupplier, LoggerWrapper}
 import org.specs._
 import alexmsmartins.map._
 import alexmsmartins.log.LoggerWrapper._
+import alexmsmartins.log.LoggerSupplier
 import java.lang.{IndexOutOfBoundsException, IllegalArgumentException}
 
 /**
@@ -13,8 +14,8 @@ import java.lang.{IndexOutOfBoundsException, IllegalArgumentException}
  * Time: 2:51
  * To change this template use File | Settings | File Templates.
  */
-object mapcarSpec extends Specification {
-  LoggerWrapper.info("mapcarSpec test logging started!")
+object mapcarSpec extends Specification with LoggerSupplier {
+  supplyLog.info("mapcarSpec test logging started!")
 
   description = "the system basic functionalities are"
   "MapFunction" should {
