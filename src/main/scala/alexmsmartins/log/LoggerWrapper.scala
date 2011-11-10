@@ -12,7 +12,7 @@ trait LoggerWrapper {
    * loads the logger lazily when it is first needed
    */
   lazy protected[this] val logger:Logger = {
-    Console.println("Logger wrapper initialized for " + getClass)
+    //Console.println("Logger wrapper initialized for " + getClass)
     LoggerFactory.getLogger(getClass)
   }
 
@@ -28,17 +28,17 @@ trait LoggerWrapper {
     arg
   }
 
-  def trace[T](format: String, arg1: T, arg2: AnyRef):T = {
+  def trace[T](format: String, arg1: T, arg2: Any):T = {
     logger.trace(format, arg1, arg2)
     arg1
   }
 
-  def trace[T](format: String, arg1:T, arg2:AnyRef, args:AnyRef*):T = {
+  def trace[T](format: String, arg1:T, arg2:Any, args:Any*):T = {
     logger.trace(format, (arg1 :: arg2 :: args.toList).toArray)
     arg1
   }
 
-  def trace(format: String, transversable:Traversable[AnyRef]):Traversable[AnyRef] ={
+  def trace(format: String, transversable:Traversable[Any]):Traversable[Any] ={
     logger.trace(format, transversable.toArray)
     transversable
   }
@@ -54,17 +54,17 @@ trait LoggerWrapper {
     arg
   }
 
-  def trace[T](marker: Marker, format: String, arg1: T, arg2: AnyRef):T = {
+  def trace[T](marker: Marker, format: String, arg1: T, arg2: Any):T = {
     logger.trace(marker, format, arg1, arg2)
     arg1
   }
 
-  def trace[T](marker:Marker, format: String, arg1:T, arg2:AnyRef, args:AnyRef*):T = {
+  def trace[T](marker:Marker, format: String, arg1:T, arg2:Any, args:Any*):T = {
     logger.trace(marker, format, (arg1 :: arg2 :: args.toList).toArray)
     arg1
   }
 
-  def trace(marker:Marker, format: String, transversable:Traversable[AnyRef]):Traversable[AnyRef] ={
+  def trace(marker:Marker, format: String, transversable:Traversable[Any]):Traversable[Any] ={
     logger.trace(marker, format, transversable.toArray)
     transversable
   }
@@ -81,17 +81,17 @@ trait LoggerWrapper {
     arg
   }
 
-  def debug[T](format: String, arg1: T, arg2: AnyRef):T = {
+  def debug[T](format: String, arg1: T, arg2: Any):T = {
     logger.debug(format, arg1, arg2)
     arg1
   }
 
-  def debug[T](format: String, arg1:T, arg2:AnyRef, args:AnyRef*):T = {
+  def debug[T](format: String, arg1:T, arg2:Any, args:Any*):T = {
     logger.debug(format, (arg1 :: arg2 :: args.toList).toArray)
     arg1
   }
 
-  def debug(format: String, transversable:Traversable[AnyRef]):Traversable[AnyRef] ={
+  def debug(format: String, transversable:Traversable[Any]):Traversable[Any] ={
     logger.debug(format, transversable.toArray)
     transversable
   }
@@ -107,17 +107,17 @@ trait LoggerWrapper {
     arg
   }
 
-  def debug[T](marker: Marker, format: String, arg1: T, arg2: AnyRef):T = {
+  def debug[T](marker: Marker, format: String, arg1: T, arg2: Any):T = {
     logger.debug(marker, format, arg1, arg2)
     arg1
   }
 
-  def debug[T](marker:Marker, format: String, arg1:T, arg2:AnyRef, args:AnyRef*):T = {
+  def debug[T](marker:Marker, format: String, arg1:T, arg2:Any, args:Any*):T = {
     logger.debug(marker, format, (arg1 :: arg2 :: args.toList).toArray)
     arg1
   }
 
-  def debug(marker:Marker, format: String, transversable:Traversable[AnyRef]):Traversable[AnyRef] ={
+  def debug(marker:Marker, format: String, transversable:Traversable[Any]):Traversable[Any] ={
     logger.debug(marker, format, transversable.toArray)
     transversable
   }
@@ -134,17 +134,17 @@ trait LoggerWrapper {
     arg
   }
 
-  def info[T](format: String, arg1: T, arg2: AnyRef):T = {
+  def info[T](format: String, arg1: T, arg2: Any):T = {
     logger.info(format, arg1, arg2)
     arg1
   }
 
-  def info[T](format: String, arg1:T, arg2:AnyRef, args:AnyRef*):T = {
+  def info[T](format: String, arg1:T, arg2:Any, args:Any*):T = {
     logger.info(format, (arg1 :: arg2 :: args.toList).toArray)
     arg1
   }
 
-  def info(format: String, transversable:Traversable[AnyRef]):Traversable[AnyRef] ={
+  def info(format: String, transversable:Traversable[Any]):Traversable[Any] ={
     logger.info(format, transversable.toArray)
     transversable
   }
@@ -160,17 +160,17 @@ trait LoggerWrapper {
     arg
   }
 
-  def info[T](marker: Marker, format: String, arg1: T, arg2: AnyRef):T = {
+  def info[T](marker: Marker, format: String, arg1: T, arg2: Any):T = {
     logger.info(marker, format, arg1, arg2)
     arg1
   }
 
-  def info[T](marker:Marker, format: String, arg1:T, arg2:AnyRef, args:AnyRef*):T = {
+  def info[T](marker:Marker, format: String, arg1:T, arg2:Any, args:Any*):T = {
     logger.info(marker, format, (arg1 :: arg2 :: args.toList).toArray)
     arg1
   }
 
-  def info(marker:Marker, format: String, transversable:Traversable[AnyRef]):Traversable[AnyRef] ={
+  def info(marker:Marker, format: String, transversable:Traversable[Any]):Traversable[Any] ={
     logger.info(marker, format, transversable.toArray)
     transversable
   }
@@ -187,17 +187,17 @@ trait LoggerWrapper {
     arg
   }
 
-  def warn[T](format: String, arg1: T, arg2: AnyRef):T = {
+  def warn[T](format: String, arg1: T, arg2: Any):T = {
     logger.warn(format, arg1, arg2)
     arg1
   }
 
-  def warn[T](format: String, arg1:T, arg2:AnyRef, args:AnyRef*):T = {
+  def warn[T](format: String, arg1:T, arg2:Any, args:Any*):T = {
     logger.warn(format, (arg1 :: arg2 :: args.toList).toArray)
     arg1
   }
 
-  def warn(format: String, transversable:Traversable[AnyRef]):Traversable[AnyRef] ={
+  def warn(format: String, transversable:Traversable[Any]):Traversable[Any] ={
     logger.warn(format, transversable.toArray)
     transversable
   }
@@ -213,17 +213,17 @@ trait LoggerWrapper {
     arg
   }
 
-  def warn[T](marker: Marker, format: String, arg1: T, arg2: AnyRef):T = {
+  def warn[T](marker: Marker, format: String, arg1: T, arg2: Any):T = {
     logger.warn(marker, format, arg1, arg2)
     arg1
   }
 
-  def warn[T](marker:Marker, format: String, arg1:T, arg2:AnyRef, args:AnyRef*):T = {
+  def warn[T](marker:Marker, format: String, arg1:T, arg2:Any, args:Any*):T = {
     logger.warn(marker, format, (arg1 :: arg2 :: args.toList).toArray)
     arg1
   }
 
-  def warn(marker:Marker, format: String, transversable:Traversable[AnyRef]):Traversable[AnyRef] ={
+  def warn(marker:Marker, format: String, transversable:Traversable[Any]):Traversable[Any] ={
     logger.warn(marker, format, transversable.toArray)
     transversable
   }
@@ -240,17 +240,17 @@ trait LoggerWrapper {
     arg
   }
 
-  def error[T](format: String, arg1: T, arg2: AnyRef):T = {
+  def error[T](format: String, arg1: T, arg2: Any):T = {
     logger.error(format, arg1, arg2)
     arg1
   }
 
-  def error[T](format: String, arg1:T, arg2:AnyRef, args:AnyRef*):T = {
+  def error[T](format: String, arg1:T, arg2:Any, args:Any*):T = {
     logger.error(format, (arg1 :: arg2 :: args.toList).toArray)
     arg1
   }
 
-  def error(format: String, transversable:Traversable[AnyRef]):Traversable[AnyRef] ={
+  def error(format: String, transversable:Traversable[Any]):Traversable[Any] ={
     logger.error(format, transversable.toArray)
     transversable
   }
@@ -266,17 +266,17 @@ trait LoggerWrapper {
     arg
   }
 
-  def error[T](marker: Marker, format: String, arg1: T, arg2: AnyRef):T = {
+  def error[T](marker: Marker, format: String, arg1: T, arg2: Any):T = {
     logger.error(marker, format, arg1, arg2)
     arg1
   }
 
-  def error[T](marker:Marker, format: String, arg1:T, arg2:AnyRef, args:AnyRef*):T = {
+  def error[T](marker:Marker, format: String, arg1:T, arg2:Any, args:Any*):T = {
     logger.error(marker, format, (arg1 :: arg2 :: args.toList).toArray)
     arg1
   }
 
-  def error(marker:Marker, format: String, transversable:Traversable[AnyRef]):Traversable[AnyRef] ={
+  def error(marker:Marker, format: String, transversable:Traversable[Any]):Traversable[Any] ={
     logger.error(marker, format, transversable.toArray)
     transversable
   }
@@ -288,7 +288,7 @@ trait LoggerWrapper {
 trait LoggerSupplier {
   protected[LoggerSupplier] class TheLogger(clazz:Class[_]) extends LoggerWrapper{
     override lazy protected[this] val logger:Logger = {
-      Console.println("Logger wrapper initialized for " + getClass)
+      //Console.println("Logger wrapper initialized for " + getClass)
       LoggerFactory.getLogger(clazz)
     }
   }
