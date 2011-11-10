@@ -34,7 +34,7 @@ trait LoggerWrapper {
   }
 
   def trace[T](format: String, arg1:T, arg2:Any, args:Any*):T = {
-    logger.trace(format, (arg1 :: arg2 :: args.toList).toArray)
+    logger.trace(format, (arg1 :: arg2 :: args.toList).toArray.asInstanceOf[Array[AnyRef]])
     arg1
   }
 
@@ -60,7 +60,7 @@ trait LoggerWrapper {
   }
 
   def trace[T](marker:Marker, format: String, arg1:T, arg2:Any, args:Any*):T = {
-    logger.trace(marker, format, (arg1 :: arg2 :: args.toList).toArray)
+    logger.trace(marker, format, (arg1 :: arg2 :: args.toList).toArray.asInstanceOf[Array[AnyRef]])
     arg1
   }
 
@@ -87,7 +87,7 @@ trait LoggerWrapper {
   }
 
   def debug[T](format: String, arg1:T, arg2:Any, args:Any*):T = {
-    logger.debug(format, (arg1 :: arg2 :: args.toList).toArray)
+    logger.debug(format, (arg1 :: arg2 :: args.toList).toArray.asInstanceOf[Array[AnyRef]])
     arg1
   }
 
@@ -113,7 +113,7 @@ trait LoggerWrapper {
   }
 
   def debug[T](marker:Marker, format: String, arg1:T, arg2:Any, args:Any*):T = {
-    logger.debug(marker, format, (arg1 :: arg2 :: args.toList).toArray)
+    logger.debug(marker, format, (arg1 :: arg2 :: args.toList).toArray.asInstanceOf[Array[AnyRef]])
     arg1
   }
 
@@ -140,7 +140,7 @@ trait LoggerWrapper {
   }
 
   def info[T](format: String, arg1:T, arg2:Any, args:Any*):T = {
-    logger.info(format, (arg1 :: arg2 :: args.toList).toArray)
+    logger.info(format, (arg1 :: arg2 :: args.toList).toArray.asInstanceOf[Array[AnyRef]])
     arg1
   }
 
@@ -166,7 +166,7 @@ trait LoggerWrapper {
   }
 
   def info[T](marker:Marker, format: String, arg1:T, arg2:Any, args:Any*):T = {
-    logger.info(marker, format, (arg1 :: arg2 :: args.toList).toArray)
+    logger.info(marker, format, (arg1 :: arg2 :: args.toList).toArray.asInstanceOf[Array[AnyRef]])
     arg1
   }
 
@@ -193,7 +193,7 @@ trait LoggerWrapper {
   }
 
   def warn[T](format: String, arg1:T, arg2:Any, args:Any*):T = {
-    logger.warn(format, (arg1 :: arg2 :: args.toList).toArray)
+    logger.warn(format, (arg1 :: arg2 :: args.toList).toArray.asInstanceOf[Array[AnyRef]])
     arg1
   }
 
@@ -219,7 +219,7 @@ trait LoggerWrapper {
   }
 
   def warn[T](marker:Marker, format: String, arg1:T, arg2:Any, args:Any*):T = {
-    logger.warn(marker, format, (arg1 :: arg2 :: args.toList).toArray)
+    logger.warn(marker, format, (arg1 :: arg2 :: args.toList).toArray.asInstanceOf[Array[AnyRef]])
     arg1
   }
 
@@ -246,7 +246,7 @@ trait LoggerWrapper {
   }
 
   def error[T](format: String, arg1:T, arg2:Any, args:Any*):T = {
-    logger.error(format, (arg1 :: arg2 :: args.toList).toArray)
+    logger.error(format, (arg1 :: arg2 :: args.toList).toArray.asInstanceOf[Array[AnyRef]])
     arg1
   }
 
@@ -272,7 +272,7 @@ trait LoggerWrapper {
   }
 
   def error[T](marker:Marker, format: String, arg1:T, arg2:Any, args:Any*):T = {
-    logger.error(marker, format, (arg1 :: arg2 :: args.toList).toArray)
+    logger.error(marker, format, (arg1 :: arg2 :: args.toList).toArray.asInstanceOf[Array[AnyRef]])
     arg1
   }
 
