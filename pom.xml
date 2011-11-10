@@ -10,8 +10,8 @@
     <packaging>jar</packaging>
 
     <properties>
-        <scala.version>2.9.0</scala.version>
-        <scalaspecs.version>2.9.0</scalaspecs.version>
+        <scala.version>2.9.0-1</scala.version>
+        <scalaspecs.version>2.9.0-1</scalaspecs.version>
         <!-- Common plugin settings -->
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>${project.build.sourceEncoding}</project.reporting.outputEncoding>
@@ -60,16 +60,19 @@
             <version>1.6.1</version>
         </dependency>
        <dependency>
-         <groupId>ch.qos.logback</groupId>
-         <artifactId>logback-core</artifactId>
-         <version>${lb.version}</version>
-           <scope>provided</scope>
-       </dependency>
-       <dependency>
            <groupId>ch.qos.logback</groupId>
            <artifactId>logback-classic</artifactId>
-           <version>${lb.version}</version>
+           <version>0.9.29</version>
+           <scope>test</scope>
        </dependency>
+        <!--  Dependency for running with maven's sake -->
+        <dependency>
+          <groupId>junit</groupId>
+          <artifactId>junit</artifactId>
+          <version>4.7</version>
+          <optional>true</optional>
+            <scope>test</scope>
+        </dependency>
     </dependencies>
 
     <build>
@@ -123,6 +126,11 @@
                     </execution>
                 </executions>
             </plugin>
+              <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>2.4.3</version>
+              </plugin>
             <plugin>
                 <groupId>org.mortbay.jetty</groupId>
                 <artifactId>maven-jetty-plugin</artifactId>
