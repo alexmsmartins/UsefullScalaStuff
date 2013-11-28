@@ -15,5 +15,5 @@ into
     methodOne(debug("MethodTwo returns {}.", methodTwo(2, 3)), "String")
 
 
-
+The build state of UsefullScalaStuff is [![Build Status](https://travis-ci.org/alexmsmartins/UsefullScalaStuff.png?branch=master)](https://travis-ci.org/alexmsmartins/UsefullScalaStuff)
 
